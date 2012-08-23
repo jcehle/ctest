@@ -21,7 +21,6 @@
 
   </header>
   <div role="main">
-	
 
 	<div class="vidContainer">
 		<video id="bgVideo">
@@ -37,14 +36,18 @@
 	
 	<img id="contentVideoShadow" src="img/shadow.svg">
 	
-	<div id="debugControls">
-		<button id="b1" onclick="changeVideo(0);">clicker!</button>
-		<button id="b2" onclick="changeVideo(1);">clicker!</button>
-		<button id="b3" onclick="changeVideo(2);">clicker!</button>
-	</div>
+	
 	
   <!-- end main -->
   </div> 
+
+	<div id="debugContainer">
+		<div id="debugControls">
+			<button id="b1" onclick="changeVideo(0);">vid1</button>
+			<button id="b2" onclick="changeVideo(1);">vid2</button>
+			<button id="b3" onclick="changeVideo(2);">vid3</button>
+		<div>
+	</div>
 
   <footer>
 
@@ -57,6 +60,7 @@
   <script src="js/libs/dat.gui.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/libs/GSAP/TweenMax.min.js"></script>
  
 </body>
 </html>

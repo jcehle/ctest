@@ -1,5 +1,5 @@
 body{
-	background-color: #333;
+	background-color: #000;
 }
 
 #bgVideo {
@@ -24,11 +24,15 @@ body{
 	width: 100%;
 }
 
+#debugContainer{
+	position:fixed;
+	width:100%;
+	top: 40px;
+}
+
 #debugControls{
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	z-index: 99;
+	float:right;
+	margin-right: 25px;
 }
 
 .fadeOut{
@@ -40,15 +44,3 @@ body{
 	opacity: 1;
 	-webkit-transition: opacity 0.5s ease-in-out;	
 }
-
-/*
-.fade{
-	opacity: 1;
-	transition: opacity .5s ease-in-out;
-	-webkit-transition: opacity .5s ease-in-out;
-}
-
-.fade:hover{
-	opacity:0.25;
-}
-*/

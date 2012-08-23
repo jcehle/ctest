@@ -8,6 +8,7 @@ var DebugObj = function()
 var debugObj = new DebugObj();
 var gui = new dat.GUI();
 var model = {};
+var queuedVidVO = {};
 
 $(document).ready(function() {
 	gui.add(debugObj, 'winWidth').listen();
@@ -58,6 +59,7 @@ function initVideos(){
 
 	bgVid.on('ended', function(e){
 		console.log('bg vid ended');
+		fadeContentVidIn();
 	});
 
 	bgVid.on('timeupdate', function(e){
@@ -86,30 +88,37 @@ function changeVideo(vidId) {
 	var contentVid = $('#contentVideo');
 	var shadow = $('#contentVideoShadow');
 	var bgVid = $('#bgVideo');
+		
+	var contentVidFile, bgVidFile;
 	
-	var videoFile = "";
+	//fade everything out
+	TweenMax.to($('#contentVideo'), 1.5, {css:{opacity:0}, onComplete:onFadeOut, ease:Power3.easeOut});
+	TweenMax.to($('#contentVideoShadow'), 1.5, {css:{opacity:0}, ease:Power3.easeOut});
+	TweenMax.to($('#bgVideo'), 1.5, {css:{opacity:0}, ease:Power3.easeOut});
 	
 	switch (vidId)
 	{
 		case 0: //CHANGE SRC
-		videoFile = "http://localhost/vids/coolmore/dte/Vet Hospital_1.mp4";
-		console.log('change source ' + videoFile);
+			if(model.movies.cm01) {
+				queuedVidVO = model.movies.cm01;
+				console.log(model.movies.cm01);
+			};
 		break;
 		
-		case 1: //fade In
-		videoFile = "http://localhost/vids/coolmore/dte/salmon.mp4";
-		console.log('change source vid ' + videoFile);
+		case 1: 
+		if(model.movies.cm02) {
+			queuedVidVO = model.movies.cm02;
+			console.log(model.movies.cm02);
+		};
 		break;
 		
 		default:
-		videoFile = "http://localhost/vids/coolmore/dte/space_1.mp4";
-		console.log('change src vid3 ' + videoFile);
+		if(model.movies.cm03) {
+			queuedVidVO = model.movies.cm03;
+			console.log(model.movies.cm03);
+		};
 		break;
 	}
-	
-	$('#contentVideo source').attr('src', videoFile);
-	$('#contentVideo')[0].load();
-	$('#contentVideo')[0].play();
 };
 
 function fadeOut( element, callback ) {
@@ -132,11 +141,29 @@ function fadeIn( element, callback) {
 	}
 };
 
-function onFadeOut(e) {
-	console.log("REMOVE LISTERS! out.");
+function onFadeOut() {
+	console.log("ON fade out");
+	console.log(queuedVidVO.contentVid);
+	
+	$('#contentVideo source').attr('src', queuedVidVO.contentVid);
+	$('#bgVideo source').attr('src', queuedVidVO.bgVid);	
+
+	$('#contentVideo')[0].load();
+	$('#bgVideo')[0].load();
+
+	$('#bgVideo')[0].play();
+
+	TweenMax.to($('#bgVideo'), 1.5, {css:{opacity:1}, ease:Power3.easeOut});	
 };
 
+function fadeContentVidIn() {
+	$('#contentVideo')[0].play();
+	TweenMax.to($('#contentVideo'), 1.5, {css:{opacity:1}, ease:Power3.easeOut});
+	TweenMax.to($('#contentVideoShadow'), 1.5, {css:{opacity:1}, ease:Power3.easeOut});
+}
+
 function onFadeIn(e) {
+	console.log("on fade in");
 };
 
 function somethingFaded(e) {
