@@ -1,0 +1,54 @@
+body{
+	background-color: #333;
+}
+
+#bgVideo {
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+/*	opacity: 0.1; */
+}
+
+#contentVideoContainer{
+
+}
+
+#contentVideo {
+	width: 100%;
+	z-index: 50;
+	-webkit-mask-box-image: url('../img/videoMask.png');
+}
+
+#contentVideoShadow{
+	width: 100%;
+}
+
+#debugControls{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	z-index: 99;
+}
+
+.fadeOut{
+	opacity: 0;
+	-webkit-transition: opacity 0.5s ease-in-out;	
+}
+
+.fadeIn{
+	opacity: 1;
+	-webkit-transition: opacity 0.5s ease-in-out;	
+}
+
+/*
+.fade{
+	opacity: 1;
+	transition: opacity .5s ease-in-out;
+	-webkit-transition: opacity .5s ease-in-out;
+}
+
+.fade:hover{
+	opacity:0.25;
+}
+*/

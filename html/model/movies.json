@@ -1,0 +1,22 @@
+{
+	"movies":
+	{
+		"cm01":
+		{
+			"bgVid": "http://localhost/vids/coolmore/dte/Intro_1_1.mp4",
+			"contentVid": "http://localhost/vids/coolmore/dte/Vet Hospital_1.mp4"
+		},
+		
+		"cm02":
+		{
+			"bgVid": "http://localhost/vids/coolmore/dte/Intro_1_1.mp4",
+			"contentVid": "http://localhost/vids/coolmore/dte/space_1.mp4"
+		},
+		
+		"cm03":
+		{
+			"bgVid": "http://localhost/vids/coolmore/dte/Intro_1_1.mp4",
+			"contentVid": "http://localhost/vids/coolmore/dte/salmon.mp4"
+		}
+	}
+}
